@@ -16,11 +16,6 @@ jobs:
         with:
           java-version: "12.x"
 
-      - name: Decode google-services.json
-        env: 
-            GOOGLE_SERVICES_JSON: ${{ secrets.GOOGLE_SERVICES_JSON }}
-        run: echo "$GOOGLE_SERVICES_JSON" > android/app/google-services.json
-
       - uses: subosito/flutter-action@v1
         with:
           channel: "stable"
@@ -35,5 +30,6 @@ jobs:
         with:
             appId: ${{secrets.FIREBASE_APP_ID}}
             token: ${{secrets.FIREBASE_TOKEN}}
+            serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }} 
             groups: testers
             file: build/app/outputs/flutter-apk/app.apk
