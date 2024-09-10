@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('Enter name to get notification'),
+            const Text('Firebase Enter name to get notification'),
             TextField(
               controller: controller,
             ),
